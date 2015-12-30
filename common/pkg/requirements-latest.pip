@@ -2,5 +2,7 @@
 
 --allow-external u1db  --allow-unverified u1db
 --allow-external dirspec  --allow-unverified dirspec
+https://launchpad.net/dirspec/stable-13-10/13.10/+download/dirspec-13.10.tar.gz
+
 -e 'git+https://github.com/pixelated-project/leap_pycommon.git@develop#egg=leap.common'
 -e .
