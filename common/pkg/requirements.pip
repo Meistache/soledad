@@ -1,4 +1,7 @@
 u1db
+dirspec
+https://launchpad.net/dirspec/stable-13-10/13.10/+download/dirspec-13.10.tar.gz
+https://launchpad.net/ubuntu/+archive/primary/+files/u1db_13.09.orig.tar.bz2
 
 # XXX -- fix me!
 # oauth is not strictly needed by us, but we need it until u1db adds it to its

@@ -113,6 +113,7 @@ cmdclass["freeze_debianver"] = freeze_debianver
 # XXX add ref to docs
 
 requirements = utils.parse_requirements()
+dependency_links = []
 
 if utils.is_develop_mode():
     print
@@ -127,6 +128,10 @@ if utils.is_develop_mode():
 else:
     requirements += utils.parse_requirements(
         reqfiles=["pkg/requirements-leap.pip"])
+for requirement in requirements:
+    if requirement.startswith('http'):
+        dependency_links.append(requirement)
+[requirements.remove(link) for link in dependency_links]
 
 setup(
     name='leap.soledad.server',
@@ -151,5 +156,6 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     install_requires=requirements,
+    dependency_links=[],
     data_files=data_files
 )

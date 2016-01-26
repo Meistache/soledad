@@ -242,6 +242,7 @@ cmdclass["develop"] = cmd_develop
 # XXX add ref to docs
 
 requirements = utils.parse_requirements()
+dependency_links = []
 
 if utils.is_develop_mode():
     print
@@ -256,6 +257,11 @@ if utils.is_develop_mode():
 else:
     requirements += utils.parse_requirements(
         reqfiles=["pkg/requirements-leap.pip"])
+
+for requirement in requirements:
+    if requirement.startswith('http'):
+        dependency_links.append(requirement)
+[requirements.remove(link) for link in dependency_links]
 
 setup(
     name='leap.soledad.common',
@@ -281,6 +287,7 @@ setup(
     package_dir={'': 'src'},
     test_suite='leap.soledad.common.tests',
     install_requires=requirements,
+    dependency_links=dependency_links,
     tests_require=utils.parse_requirements(
         reqfiles=['pkg/requirements-testing.pip']),
     extras_require={

@@ -1,8 +1,5 @@
 --index-url https://pypi.python.org/simple/
 
-https://launchpad.net/dirspec/stable-13-10/13.10/+download/dirspec-13.10.tar.gz
-https://launchpad.net/ubuntu/+archive/primary/+files/u1db_13.09.orig.tar.bz2
-
 -e 'git+https://github.com/pixelated/leap_pycommon.git@develop#egg=leap.common'
 -e '../common'
 -e .
