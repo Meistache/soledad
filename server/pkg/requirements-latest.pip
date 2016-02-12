@@ -1,5 +1,0 @@
---index-url https://pypi.python.org/simple/
-
--e 'git+https://github.com/pixelated/leap_pycommon.git@develop#egg=leap.common'
--e '../common'
--e .
