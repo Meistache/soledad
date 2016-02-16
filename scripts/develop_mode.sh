@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CHECK_VENV="1"
+PIP="pip --no-cache-dir"
 
 usage() { echo "Usage: $0 [-n] [<leap|pixelated>]" 1>&2; exit 1; }
 
@@ -9,25 +10,25 @@ function install_requirements_for() {
 
   # upgrade pip and setuptools to the latest version
   set -e
-  pip install --upgrade pip
-  pip install --upgrade setuptools
+  $PIP install --upgrade pip
+  $PIP install --upgrade setuptools
 
   for MODULE in client server common ; do
     echo "Installing dependencies for ${MODULE}"
     pushd $MODULE
-    pip install -r "pkg/requirements-${REQUIREMENTS_MODE}.pip"
+    $PIP install -r "pkg/requirements-${REQUIREMENTS_MODE}.pip"
     popd
   done
 
   # install testing dependendies (only in common)
   pushd common
   # install testing dependendies (only in common)
-  pip install -r pkg/requirements-testing.pip
+  $PIP install -r pkg/requirements-testing.pip
   popd
 
   # reinstall scrypt
   pip uninstall -y scrypt || true
-  pip install scrypt
+  $PIP install scrypt
 
   echo -e "\n\n"
   echo "To run the tests execute:"
