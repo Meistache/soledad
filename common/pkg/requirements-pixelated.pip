@@ -1,4 +1,5 @@
 --index-url https://pypi.python.org/simple/
 
+https://launchpad.net/dirspec/stable-13-10/13.10/+download/dirspec-13.10.tar.gz
 -e 'git+https://github.com/pixelated/leap_pycommon.git@develop#egg=leap.common'
 -e .
