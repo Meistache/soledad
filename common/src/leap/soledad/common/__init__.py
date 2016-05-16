@@ -37,11 +37,13 @@ USER_DB_PREFIX = 'user-'
 #
 # Global functions
 #
+
+__version__ = get_versions()['version']
+del get_versions
+
+
 __all__ = [
     "soledad_assert",
     "soledad_assert_type",
     "__version__",
 ]
-
-__version__ = get_versions()['version']
-del get_versions
